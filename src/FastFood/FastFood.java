@@ -41,6 +41,9 @@ public class FastFood extends javax.swing.JFrame {
         OrderButton = new javax.swing.JButton();
         NoTaxOutPut = new javax.swing.JLabel();
         TaxOutPut = new javax.swing.JLabel();
+        ChangeOutPut = new javax.swing.JLabel();
+        ChangeGiven = new javax.swing.JLabel();
+        ChangeInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +72,8 @@ public class FastFood extends javax.swing.JFrame {
             }
         });
 
+        ChangeGiven.setText("Amount Tendered");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -83,19 +88,26 @@ public class FastFood extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(NoTaxOutPut, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TaxOutPut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ChangeOutPut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BurgerLabel)
-                                    .addComponent(FriesLabel)
-                                    .addComponent(DrinkLabel))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(BurgerInput, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                    .addComponent(FriesInput)
-                                    .addComponent(DrinkInput))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ChangeGiven)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ChangeInput, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(BurgerLabel)
+                                            .addComponent(FriesLabel)
+                                            .addComponent(DrinkLabel))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(BurgerInput, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                            .addComponent(FriesInput)
+                                            .addComponent(DrinkInput))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(OrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(TaxOutPut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(OrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(26, 26, 26))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,11 +132,17 @@ public class FastFood extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(OrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChangeGiven)
+                    .addComponent(ChangeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NoTaxOutPut, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TaxOutPut, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(ChangeOutPut, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,16 +166,18 @@ public class FastFood extends javax.swing.JFrame {
     private void OrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderButtonActionPerformed
         // TODO add your handling code here:
         
-        //variables
+        //variable Declaration
         double nfries,nburgers,ndrinks;
         
-        double cfries,cburgers,cdrinks, tax,total,finaltotal;
+        double cfries,cburgers,cdrinks,tax,total,finaltotal,amountGiven,change;
         
         nfries = Double.parseDouble(FriesInput.getText());
         
         nburgers = Double.parseDouble(BurgerInput.getText());
         
         ndrinks = Double.parseDouble(DrinkInput.getText());
+        
+        amountGiven = Double.parseDouble(ChangeInput.getText());
         
         cfries = 1.89;
         
@@ -171,11 +191,15 @@ public class FastFood extends javax.swing.JFrame {
         
         finaltotal = total + tax;
         
+        change = amountGiven - total;
+        
         DecimalFormat x = new DecimalFormat("##.##");
         
         NoTaxOutPut.setText("Total WithOut Tax:$"+x.format(total));
         
         TaxOutPut.setText("Total With Tax:$"+ x.format(finaltotal));
+        
+        ChangeOutPut.setText("change:$"+change);
         
     }//GEN-LAST:event_OrderButtonActionPerformed
 
@@ -218,6 +242,9 @@ public class FastFood extends javax.swing.JFrame {
     private javax.swing.JTextField BurgerInput;
     private javax.swing.JLabel BurgerLabel;
     private javax.swing.JLabel Burgerlabel;
+    private javax.swing.JLabel ChangeGiven;
+    private javax.swing.JTextField ChangeInput;
+    private javax.swing.JLabel ChangeOutPut;
     private javax.swing.JTextField DrinkInput;
     private javax.swing.JLabel DrinkLabel;
     private javax.swing.JTextField FriesInput;

@@ -54,22 +54,32 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="NoTaxOutPut" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TaxOutPut" alignment="1" max="32767" attributes="0"/>
+                              <Component id="ChangeOutPut" alignment="1" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="BurgerLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="FriesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="DrinkLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="BurgerInput" pref="40" max="32767" attributes="0"/>
-                                      <Component id="FriesInput" max="32767" attributes="0"/>
-                                      <Component id="DrinkInput" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="ChangeGiven" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="ChangeInput" pref="31" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="BurgerLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="FriesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="DrinkLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="BurgerInput" pref="40" max="32767" attributes="0"/>
+                                              <Component id="FriesInput" max="32767" attributes="0"/>
+                                              <Component id="DrinkInput" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="OrderButton" min="-2" pref="122" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="TaxOutPut" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
@@ -105,11 +115,18 @@
                           <Component id="OrderButton" min="-2" pref="78" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="58" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ChangeGiven" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ChangeInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="NoTaxOutPut" min="-2" pref="18" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="TaxOutPut" min="-2" pref="18" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <Component id="ChangeOutPut" min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -161,6 +178,15 @@
         <Component class="javax.swing.JLabel" name="NoTaxOutPut">
         </Component>
         <Component class="javax.swing.JLabel" name="TaxOutPut">
+        </Component>
+        <Component class="javax.swing.JLabel" name="ChangeOutPut">
+        </Component>
+        <Component class="javax.swing.JLabel" name="ChangeGiven">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Amount Tendered"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ChangeInput">
         </Component>
       </SubComponents>
     </Container>
